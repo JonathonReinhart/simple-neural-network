@@ -13,11 +13,11 @@ def sigmoid_derivative(x):
     return x * (1 - x)
 
 class NeuralNetwork():
-    def __init__(self):
-        # We model a single neuron, with 3 input connections and 1 output connection.
-        # We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1
+    def __init__(self, dim):
+        # We model a single neuron, with 'dim' input connections and 1 output connection.
+        # We assign random weights to a 'dim' x 1 matrix, with values in the range -1 to 1
         # and mean 0.
-        self.synaptic_weights = 2 * random.random((3, 1)) - 1
+        self.synaptic_weights = 2 * random.random((dim, 1)) - 1
 
     # We train the neural network through a process of trial and error.
     # Adjusting the synaptic weights each time.
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     random.seed(1)
 
     #Intialise a single neuron neural network.
-    neural_network = NeuralNetwork()
+    neural_network = NeuralNetwork(3)
 
     print "Random starting synaptic weights: "
     print neural_network.synaptic_weights
